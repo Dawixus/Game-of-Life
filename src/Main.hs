@@ -34,8 +34,9 @@ paused board = do
 
 simulate :: [[Int]] -> IO ()
 simulate board = do
-    putStr "\ESC[2J"
+    putStr "\ESC[2J\ESC[H"
     printGrid board
+    hFlush stdout
 
     threadDelay 400000
 
